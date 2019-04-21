@@ -47,6 +47,7 @@ public class Farmacia implements Serializable {
     @OneToMany(mappedBy = "farmacia")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Stock> stocks = new HashSet<>();
+
     @OneToMany(mappedBy = "farmacia")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Subscripcion> subscripciones = new HashSet<>();

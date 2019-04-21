@@ -43,8 +43,6 @@ public class CacheConfiguration {
             cm.createCache(com.josetesan.farmatify.domain.Posologia.class.getName(), jcacheConfiguration);
             cm.createCache(com.josetesan.farmatify.domain.Farmacia.class.getName(), jcacheConfiguration);
             cm.createCache(com.josetesan.farmatify.domain.Farmacia.class.getName() + ".idFarmacias", jcacheConfiguration);
-            cm.createCache(com.josetesan.farmatify.domain.Cliente.class.getName(), jcacheConfiguration);
-            cm.createCache(com.josetesan.farmatify.domain.Cliente.class.getName() + ".idClientes", jcacheConfiguration);
             cm.createCache(com.josetesan.farmatify.domain.Subscripcion.class.getName(), jcacheConfiguration);
             cm.createCache(com.josetesan.farmatify.domain.Subscripcion.class.getName() + ".idMedicamentos", jcacheConfiguration);
             cm.createCache(com.josetesan.farmatify.domain.Medicamento.class.getName() + ".posologias", jcacheConfiguration);
