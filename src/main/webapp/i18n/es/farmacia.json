@@ -1,0 +1,27 @@
+{
+    "farmatifyApp": {
+        "farmacia": {
+            "home": {
+                "title": "Farmacias",
+                "createLabel": "Crear nuevo Farmacia",
+                "createOrEditLabel": "Crear o editar Farmacia",
+                "search": "Search for Farmacia"
+            },
+            "created": "Un nuevo Farmacia ha sido creado con el identificador {{ param }}",
+            "updated": "Un Farmacia ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Farmacia ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Farmacia {{ id }}?"
+            },
+            "detail": {
+                "title": "Farmacia"
+            },
+            "calle": "Calle",
+            "codigoPostal": "Codigo Postal",
+            "ciudad": "Ciudad",
+            "provincia": "Provincia",
+            "titular": "Titular",
+            "idFarmacia": "Id Farmacia"
+        }
+    }
+}

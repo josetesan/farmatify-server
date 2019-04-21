@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-medicamento-farmatify-heading" jhiTranslate="farmatifyApp.medicamento.home.createOrEditLabel">Create or edit a Medicamento</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!medicamento.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="medicamento.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                        [(ngModel)]="medicamento.nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.stock" for="field_stock">Stock</label>
+                    <input type="number" class="form-control" name="stock" id="field_stock"
+                        [(ngModel)]="medicamento.stock" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.pvp" for="field_pvp">Pvp</label>
+                    <input type="number" class="form-control" name="pvp" id="field_pvp"
+                        [(ngModel)]="medicamento.pvp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.unidades" for="field_unidades">Unidades</label>
+                    <input type="number" class="form-control" name="unidades" id="field_unidades"
+                        [(ngModel)]="medicamento.unidades" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.subscripcion" for="field_subscripcion">Subscripcion</label>
+                    <select class="form-control" id="field_subscripcion" name="subscripcion" [(ngModel)]="medicamento.subscripcionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subscripcionOption.id" *ngFor="let subscripcionOption of subscripcions; trackBy: trackSubscripcionById">{{subscripcionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

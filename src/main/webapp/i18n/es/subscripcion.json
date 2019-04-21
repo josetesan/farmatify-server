@@ -1,0 +1,30 @@
+{
+    "farmatifyApp": {
+        "subscripcion": {
+            "home": {
+                "title": "Subscripcions",
+                "createLabel": "Crear nuevo Subscripcion",
+                "createOrEditLabel": "Crear o editar Subscripcion",
+                "search": "Search for Subscripcion"
+            },
+            "created": "Un nuevo Subscripcion ha sido creado con el identificador {{ param }}",
+            "updated": "Un Subscripcion ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Subscripcion ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Subscripcion {{ id }}?"
+            },
+            "detail": {
+                "title": "Subscripcion"
+            },
+            "idMedicamento": "Id Medicamento",
+            "idCliente": "Id Cliente",
+            "idFarmacia": "Id Farmacia",
+            "farmacia": "Farmacia",
+            "cliente": "Cliente",
+            "idMedicamento": "Id Medicamento",
+            "idFarmacia": "Id Farmacia",
+            "idCliente": "Id Cliente",
+            "idMedicamento": "Id Medicamento"
+        }
+    }
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Subscripcion.
+    -->
+    <changeSet id="20190421183033-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="farmacia_id"
+                                 baseTableName="subscripcion"
+                                 constraintName="fk_subscripcion_farmacia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="farmacia"/>
+
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="subscripcion"
+                                 constraintName="fk_subscripcion_cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_medicamento_id"
+                                 baseTableName="subscripcion"
+                                 constraintName="fk_subscripcion_id_medicamento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medicamento"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_farmacia_id"
+                                 baseTableName="subscripcion"
+                                 constraintName="fk_subscripcion_id_farmacia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="farmacia"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_cliente_id"
+                                 baseTableName="subscripcion"
+                                 constraintName="fk_subscripcion_id_cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,45 @@
+{
+    "name": "Medicamento",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stock",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pvp",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "unidades",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "posologia",
+            "otherEntityRelationshipName": "medicamento",
+            "relationshipName": "idPosologia"
+        },
+        {
+            "relationshipName": "subscripcion",
+            "otherEntityName": "subscripcion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190421183029",
+    "entityTableName": "medicamento",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "farmatify"
+}

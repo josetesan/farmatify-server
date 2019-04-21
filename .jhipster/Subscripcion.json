@@ -1,0 +1,71 @@
+{
+    "name": "Subscripcion",
+    "fields": [
+        {
+            "fieldName": "idMedicamento",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idCliente",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idFarmacia",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "farmacia",
+            "otherEntityName": "farmacia",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "medicamento",
+            "otherEntityRelationshipName": "subscripcion",
+            "relationshipName": "idMedicamento",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "farmacia",
+            "otherEntityRelationshipName": "subscripcion",
+            "relationshipName": "idFarmacia",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "cliente",
+            "otherEntityRelationshipName": "subscripcion",
+            "relationshipName": "idCliente",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "medicamento",
+            "otherEntityRelationshipName": "subscripcion",
+            "relationshipName": "idMedicamento"
+        }
+    ],
+    "changelogDate": "20190421183033",
+    "entityTableName": "subscripcion",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "farmatify"
+}

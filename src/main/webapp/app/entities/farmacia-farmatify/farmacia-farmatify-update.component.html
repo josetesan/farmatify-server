@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-farmacia-farmatify-heading" jhiTranslate="farmatifyApp.farmacia.home.createOrEditLabel">Create or edit a Farmacia</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!farmacia.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="farmacia.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.farmacia.calle" for="field_calle">Calle</label>
+                    <input type="text" class="form-control" name="calle" id="field_calle"
+                        [(ngModel)]="farmacia.calle" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.farmacia.codigoPostal" for="field_codigoPostal">Codigo Postal</label>
+                    <input type="text" class="form-control" name="codigoPostal" id="field_codigoPostal"
+                        [(ngModel)]="farmacia.codigoPostal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.farmacia.ciudad" for="field_ciudad">Ciudad</label>
+                    <input type="text" class="form-control" name="ciudad" id="field_ciudad"
+                        [(ngModel)]="farmacia.ciudad" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.farmacia.provincia" for="field_provincia">Provincia</label>
+                    <input type="text" class="form-control" name="provincia" id="field_provincia"
+                        [(ngModel)]="farmacia.provincia" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.farmacia.titular" for="field_titular">Titular</label>
+                    <input type="text" class="form-control" name="titular" id="field_titular"
+                        [(ngModel)]="farmacia.titular" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
