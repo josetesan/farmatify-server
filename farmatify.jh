@@ -1,0 +1,60 @@
+entity Medicamento {
+	nombre String,
+    stock Integer,
+    pvp Double,
+    unidades Integer
+}
+
+entity Posologia {
+	dias Integer,
+    horas Integer
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Farmacia {
+	calle String,
+	codigoPostal String,
+	ciudad String,
+	provincia String,
+    titular String
+}
+
+entity Cliente {
+    usuario String,
+    password String,
+    nombre String
+}
+
+entity Subscripcion {
+    idMedicamento Long,
+    idCliente Long,
+    idFarmacia Long
+}
+
+
+relationship OneToMany {
+	Farmacia{idFarmacia} to Subscripcion,
+	Cliente{idCliente} to Subscripcion,
+	Subscripcion{idMedicamento} to Medicamento,
+    Medicamento{idPosologia} to Posologia
+}
+
+relationship OneToOne {
+	Subscripcion{idMedicamento} to Medicamento,
+	Subscripcion{idFarmacia} to Farmacia,
+	Subscripcion{idCliente} to Cliente
+}
+
+// Set pagination options
+paginate Medicamentos with infinite-scroll
+
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+angularSuffix * with farmatify
