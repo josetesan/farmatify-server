@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(MedicamentoFarmatifyService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new MedicamentoFarmatify(0, 'AAAAAAA', 0, 0, 0);
+            elemDefault = new MedicamentoFarmatify(0, 'AAAAAAA', 0, 0);
         });
 
         describe('Service methods', async () => {
@@ -56,7 +56,6 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         nombre: 'BBBBBB',
-                        stock: 1,
                         pvp: 1,
                         unidades: 1
                     },
@@ -76,7 +75,6 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         nombre: 'BBBBBB',
-                        stock: 1,
                         pvp: 1,
                         unidades: 1
                     },

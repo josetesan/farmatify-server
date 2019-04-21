@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stock">
+            <h2><span jhiTranslate="farmatifyApp.stock.detail.title">Stock</span> {{stock.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="farmatifyApp.stock.unidades">Unidades</span></dt>
+                <dd>
+                    <span>{{stock.unidades}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmatifyApp.stock.fechaRepuesta">Fecha Repuesta</span></dt>
+                <dd>
+                    <span>{{stock.fechaRepuesta}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmatifyApp.stock.farmacia">Farmacia</span></dt>
+                <dd>
+                    <div *ngIf="stock.farmaciaId">
+                        <a [routerLink]="['/farmacia-farmatify', stock.farmaciaId, 'view']">{{stock.farmaciaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock-farmatify', stock.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -25,9 +25,15 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
+            "otherEntityName": "stock",
+            "otherEntityRelationshipName": "farmacia",
+            "relationshipName": "stocks"
+        },
+        {
+            "relationshipType": "one-to-many",
             "otherEntityName": "subscripcion",
             "otherEntityRelationshipName": "farmacia",
-            "relationshipName": "farmacia"
+            "relationshipName": "subscripciones"
         }
     ],
     "changelogDate": "20190421183031",

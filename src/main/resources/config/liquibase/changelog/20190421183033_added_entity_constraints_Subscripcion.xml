@@ -20,5 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="usuario"/>
 
+        <addForeignKeyConstraint baseColumnNames="medicamento_id"
+                                 baseTableName="subscripcion"
+                                 constraintName="fk_subscripcion_medicamento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medicamento"/>
+
     </changeSet>
 </databaseChangeLog>

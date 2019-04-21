@@ -8,16 +8,17 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Subscripcion and its DTO SubscripcionDTO.
  */
-@Mapper(componentModel = "spring", uses = {FarmaciaMapper.class, UsuarioMapper.class})
+@Mapper(componentModel = "spring", uses = {FarmaciaMapper.class, UsuarioMapper.class, MedicamentoMapper.class})
 public interface SubscripcionMapper extends EntityMapper<SubscripcionDTO, Subscripcion> {
 
     @Mapping(source = "farmacia.id", target = "farmaciaId")
     @Mapping(source = "usuario.id", target = "usuarioId")
+    @Mapping(source = "medicamento.id", target = "medicamentoId")
     SubscripcionDTO toDto(Subscripcion subscripcion);
 
     @Mapping(source = "farmaciaId", target = "farmacia")
     @Mapping(source = "usuarioId", target = "usuario")
-    @Mapping(target = "medicamentos", ignore = true)
+    @Mapping(source = "medicamentoId", target = "medicamento")
     Subscripcion toEntity(SubscripcionDTO subscripcionDTO);
 
     default Subscripcion fromId(Long id) {

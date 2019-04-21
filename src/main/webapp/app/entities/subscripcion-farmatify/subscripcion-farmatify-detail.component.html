@@ -25,6 +25,12 @@
                         <a [routerLink]="['/usuario-farmatify', subscripcion.usuarioId, 'view']">{{subscripcion.usuarioId}}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="farmatifyApp.subscripcion.medicamento">Medicamento</span></dt>
+                <dd>
+                    <div *ngIf="subscripcion.medicamentoId">
+                        <a [routerLink]="['/medicamento-farmatify', subscripcion.medicamentoId, 'view']">{{subscripcion.medicamentoId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

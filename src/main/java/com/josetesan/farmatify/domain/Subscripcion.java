@@ -1,7 +1,6 @@
 package com.josetesan.farmatify.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -11,8 +10,6 @@ import javax.persistence.*;
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -38,16 +35,17 @@ public class Subscripcion implements Serializable {
     private Instant fechaFin;
 
     @ManyToOne
-    @JsonIgnoreProperties("farmacias")
+    @JsonIgnoreProperties("subscripciones")
     private Farmacia farmacia;
 
     @ManyToOne
-    @JsonIgnoreProperties("usuarios")
+    @JsonIgnoreProperties("subscripciones")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "subscripcion")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Medicamento> medicamentos = new HashSet<>();
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Medicamento medicamento;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -109,29 +107,17 @@ public class Subscripcion implements Serializable {
         this.usuario = usuario;
     }
 
-    public Set<Medicamento> getMedicamentos() {
-        return medicamentos;
+    public Medicamento getMedicamento() {
+        return medicamento;
     }
 
-    public Subscripcion medicamentos(Set<Medicamento> medicamentos) {
-        this.medicamentos = medicamentos;
+    public Subscripcion medicamento(Medicamento medicamento) {
+        this.medicamento = medicamento;
         return this;
     }
 
-    public Subscripcion addMedicamento(Medicamento medicamento) {
-        this.medicamentos.add(medicamento);
-        medicamento.setSubscripcion(this);
-        return this;
-    }
-
-    public Subscripcion removeMedicamento(Medicamento medicamento) {
-        this.medicamentos.remove(medicamento);
-        medicamento.setSubscripcion(null);
-        return this;
-    }
-
-    public void setMedicamentos(Set<Medicamento> medicamentos) {
-        this.medicamentos = medicamentos;
+    public void setMedicamento(Medicamento medicamento) {
+        this.medicamento = medicamento;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

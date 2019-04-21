@@ -31,10 +31,9 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="farmatifyApp.medicamento.nombre">Nombre</span></th>
-            <th><span jhiTranslate="farmatifyApp.medicamento.stock">Stock</span></th>
             <th><span jhiTranslate="farmatifyApp.medicamento.pvp">Pvp</span></th>
             <th><span jhiTranslate="farmatifyApp.medicamento.unidades">Unidades</span></th>
-            <th><span jhiTranslate="farmatifyApp.medicamento.subscripcion">Subscripcion</span></th>
+            <th><span jhiTranslate="farmatifyApp.medicamento.stock">Stock</span></th>
             <th></th>
             </tr>
             </thead>
@@ -42,12 +41,11 @@
             <tr *ngFor="let medicamento of medicamentos ;trackBy: trackId">
                 <td><a [routerLink]="['/medicamento-farmatify', medicamento.id, 'view' ]">{{medicamento.id}}</a></td>
                 <td>{{medicamento.nombre}}</td>
-                <td>{{medicamento.stock}}</td>
                 <td>{{medicamento.pvp}}</td>
                 <td>{{medicamento.unidades}}</td>
                 <td>
-                    <div *ngIf="medicamento.subscripcionId">
-                        <a [routerLink]="['../subscripcion-farmatify', medicamento.subscripcionId , 'view' ]" >{{medicamento.subscripcionId}}</a>
+                    <div *ngIf="medicamento.stockId">
+                        <a [routerLink]="['../stock-farmatify', medicamento.stockId , 'view' ]" >{{medicamento.stockId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

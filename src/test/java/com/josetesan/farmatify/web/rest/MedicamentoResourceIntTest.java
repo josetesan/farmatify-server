@@ -50,9 +50,6 @@ public class MedicamentoResourceIntTest {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_STOCK = 1;
-    private static final Integer UPDATED_STOCK = 2;
-
     private static final Double DEFAULT_PVP = 1D;
     private static final Double UPDATED_PVP = 2D;
 
@@ -116,7 +113,6 @@ public class MedicamentoResourceIntTest {
     public static Medicamento createEntity(EntityManager em) {
         Medicamento medicamento = new Medicamento()
             .nombre(DEFAULT_NOMBRE)
-            .stock(DEFAULT_STOCK)
             .pvp(DEFAULT_PVP)
             .unidades(DEFAULT_UNIDADES);
         return medicamento;
@@ -144,7 +140,6 @@ public class MedicamentoResourceIntTest {
         assertThat(medicamentoList).hasSize(databaseSizeBeforeCreate + 1);
         Medicamento testMedicamento = medicamentoList.get(medicamentoList.size() - 1);
         assertThat(testMedicamento.getNombre()).isEqualTo(DEFAULT_NOMBRE);
-        assertThat(testMedicamento.getStock()).isEqualTo(DEFAULT_STOCK);
         assertThat(testMedicamento.getPvp()).isEqualTo(DEFAULT_PVP);
         assertThat(testMedicamento.getUnidades()).isEqualTo(DEFAULT_UNIDADES);
 
@@ -187,7 +182,6 @@ public class MedicamentoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(medicamento.getId().intValue())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
-            .andExpect(jsonPath("$.[*].stock").value(hasItem(DEFAULT_STOCK)))
             .andExpect(jsonPath("$.[*].pvp").value(hasItem(DEFAULT_PVP.doubleValue())))
             .andExpect(jsonPath("$.[*].unidades").value(hasItem(DEFAULT_UNIDADES)));
     }
@@ -204,7 +198,6 @@ public class MedicamentoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(medicamento.getId().intValue()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
-            .andExpect(jsonPath("$.stock").value(DEFAULT_STOCK))
             .andExpect(jsonPath("$.pvp").value(DEFAULT_PVP.doubleValue()))
             .andExpect(jsonPath("$.unidades").value(DEFAULT_UNIDADES));
     }
@@ -231,7 +224,6 @@ public class MedicamentoResourceIntTest {
         em.detach(updatedMedicamento);
         updatedMedicamento
             .nombre(UPDATED_NOMBRE)
-            .stock(UPDATED_STOCK)
             .pvp(UPDATED_PVP)
             .unidades(UPDATED_UNIDADES);
         MedicamentoDTO medicamentoDTO = medicamentoMapper.toDto(updatedMedicamento);
@@ -246,7 +238,6 @@ public class MedicamentoResourceIntTest {
         assertThat(medicamentoList).hasSize(databaseSizeBeforeUpdate);
         Medicamento testMedicamento = medicamentoList.get(medicamentoList.size() - 1);
         assertThat(testMedicamento.getNombre()).isEqualTo(UPDATED_NOMBRE);
-        assertThat(testMedicamento.getStock()).isEqualTo(UPDATED_STOCK);
         assertThat(testMedicamento.getPvp()).isEqualTo(UPDATED_PVP);
         assertThat(testMedicamento.getUnidades()).isEqualTo(UPDATED_UNIDADES);
 
@@ -310,7 +301,6 @@ public class MedicamentoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(medicamento.getId().intValue())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE)))
-            .andExpect(jsonPath("$.[*].stock").value(hasItem(DEFAULT_STOCK)))
             .andExpect(jsonPath("$.[*].pvp").value(hasItem(DEFAULT_PVP.doubleValue())))
             .andExpect(jsonPath("$.[*].unidades").value(hasItem(DEFAULT_UNIDADES)));
     }

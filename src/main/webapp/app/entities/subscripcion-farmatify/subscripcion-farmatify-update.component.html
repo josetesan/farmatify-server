@@ -38,6 +38,13 @@
                         <option [ngValue]="usuarioOption.id" *ngFor="let usuarioOption of usuarios; trackBy: trackUsuarioById">{{usuarioOption.id}}</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.medicamento" for="field_medicamento">Medicamento</label>
+                    <select class="form-control" id="field_medicamento" name="medicamento" [(ngModel)]="subscripcion.medicamentoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medicamentoOption.id" *ngFor="let medicamentoOption of medicamentos; trackBy: trackMedicamentoById">{{medicamentoOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

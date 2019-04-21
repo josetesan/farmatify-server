@@ -27,10 +27,9 @@ export class MedicamentoUpdatePage {
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
     nombreInput = element(by.id('field_nombre'));
-    stockInput = element(by.id('field_stock'));
     pvpInput = element(by.id('field_pvp'));
     unidadesInput = element(by.id('field_unidades'));
-    subscripcionSelect = element(by.id('field_subscripcion'));
+    stockSelect = element(by.id('field_stock'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -42,14 +41,6 @@ export class MedicamentoUpdatePage {
 
     async getNombreInput() {
         return this.nombreInput.getAttribute('value');
-    }
-
-    async setStockInput(stock) {
-        await this.stockInput.sendKeys(stock);
-    }
-
-    async getStockInput() {
-        return this.stockInput.getAttribute('value');
     }
 
     async setPvpInput(pvp) {
@@ -68,23 +59,23 @@ export class MedicamentoUpdatePage {
         return this.unidadesInput.getAttribute('value');
     }
 
-    async subscripcionSelectLastOption() {
-        await this.subscripcionSelect
+    async stockSelectLastOption() {
+        await this.stockSelect
             .all(by.tagName('option'))
             .last()
             .click();
     }
 
-    async subscripcionSelectOption(option) {
-        await this.subscripcionSelect.sendKeys(option);
+    async stockSelectOption(option) {
+        await this.stockSelect.sendKeys(option);
     }
 
-    getSubscripcionSelect(): ElementFinder {
-        return this.subscripcionSelect;
+    getStockSelect(): ElementFinder {
+        return this.stockSelect;
     }
 
-    async getSubscripcionSelectedOption() {
-        return this.subscripcionSelect.element(by.css('option:checked')).getText();
+    async getStockSelectedOption() {
+        return this.stockSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

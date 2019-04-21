@@ -30,6 +30,7 @@ export class SubscripcionUpdatePage {
     fechaFinInput = element(by.id('field_fechaFin'));
     farmaciaSelect = element(by.id('field_farmacia'));
     usuarioSelect = element(by.id('field_usuario'));
+    medicamentoSelect = element(by.id('field_medicamento'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -87,6 +88,25 @@ export class SubscripcionUpdatePage {
 
     async getUsuarioSelectedOption() {
         return this.usuarioSelect.element(by.css('option:checked')).getText();
+    }
+
+    async medicamentoSelectLastOption() {
+        await this.medicamentoSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async medicamentoSelectOption(option) {
+        await this.medicamentoSelect.sendKeys(option);
+    }
+
+    getMedicamentoSelect(): ElementFinder {
+        return this.medicamentoSelect;
+    }
+
+    async getMedicamentoSelectedOption() {
+        return this.medicamentoSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

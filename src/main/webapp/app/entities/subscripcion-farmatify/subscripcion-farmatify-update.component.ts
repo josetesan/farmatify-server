@@ -12,6 +12,8 @@ import { IFarmaciaFarmatify } from 'app/shared/model/farmacia-farmatify.model';
 import { FarmaciaFarmatifyService } from 'app/entities/farmacia-farmatify';
 import { IUsuarioFarmatify } from 'app/shared/model/usuario-farmatify.model';
 import { UsuarioFarmatifyService } from 'app/entities/usuario-farmatify';
+import { IMedicamentoFarmatify } from 'app/shared/model/medicamento-farmatify.model';
+import { MedicamentoFarmatifyService } from 'app/entities/medicamento-farmatify';
 
 @Component({
     selector: 'jhi-subscripcion-farmatify-update',
@@ -24,6 +26,8 @@ export class SubscripcionFarmatifyUpdateComponent implements OnInit {
     farmacias: IFarmaciaFarmatify[];
 
     usuarios: IUsuarioFarmatify[];
+
+    medicamentos: IMedicamentoFarmatify[];
     fechaInicio: string;
     fechaFin: string;
 
@@ -32,6 +36,7 @@ export class SubscripcionFarmatifyUpdateComponent implements OnInit {
         protected subscripcionService: SubscripcionFarmatifyService,
         protected farmaciaService: FarmaciaFarmatifyService,
         protected usuarioService: UsuarioFarmatifyService,
+        protected medicamentoService: MedicamentoFarmatifyService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -56,6 +61,31 @@ export class SubscripcionFarmatifyUpdateComponent implements OnInit {
                 map((response: HttpResponse<IUsuarioFarmatify[]>) => response.body)
             )
             .subscribe((res: IUsuarioFarmatify[]) => (this.usuarios = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.medicamentoService
+            .query({ filter: 'subscripcion-is-null' })
+            .pipe(
+                filter((mayBeOk: HttpResponse<IMedicamentoFarmatify[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IMedicamentoFarmatify[]>) => response.body)
+            )
+            .subscribe(
+                (res: IMedicamentoFarmatify[]) => {
+                    if (!this.subscripcion.medicamentoId) {
+                        this.medicamentos = res;
+                    } else {
+                        this.medicamentoService
+                            .find(this.subscripcion.medicamentoId)
+                            .pipe(
+                                filter((subResMayBeOk: HttpResponse<IMedicamentoFarmatify>) => subResMayBeOk.ok),
+                                map((subResponse: HttpResponse<IMedicamentoFarmatify>) => subResponse.body)
+                            )
+                            .subscribe(
+                                (subRes: IMedicamentoFarmatify) => (this.medicamentos = [subRes].concat(res)),
+                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
+                            );
+                    }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
     }
 
     previousState() {
@@ -98,6 +128,10 @@ export class SubscripcionFarmatifyUpdateComponent implements OnInit {
     }
 
     trackUsuarioById(index: number, item: IUsuarioFarmatify) {
+        return item.id;
+    }
+
+    trackMedicamentoById(index: number, item: IMedicamentoFarmatify) {
         return item.id;
     }
 }

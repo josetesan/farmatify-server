@@ -1,0 +1,31 @@
+{
+    "name": "Stock",
+    "fields": [
+        {
+            "fieldName": "unidades",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaRepuesta",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "farmacia",
+            "otherEntityName": "farmacia",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190421185501",
+    "entityTableName": "stock",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "farmatify"
+}

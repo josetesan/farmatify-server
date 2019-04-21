@@ -1,3 +1,4 @@
+import { IStockFarmatify } from 'app/shared/model/stock-farmatify.model';
 import { ISubscripcionFarmatify } from 'app/shared/model/subscripcion-farmatify.model';
 
 export interface IFarmaciaFarmatify {
@@ -7,7 +8,8 @@ export interface IFarmaciaFarmatify {
     ciudad?: string;
     provincia?: string;
     titular?: string;
-    farmacias?: ISubscripcionFarmatify[];
+    stocks?: IStockFarmatify[];
+    subscripciones?: ISubscripcionFarmatify[];
 }
 
 export class FarmaciaFarmatify implements IFarmaciaFarmatify {
@@ -18,6 +20,7 @@ export class FarmaciaFarmatify implements IFarmaciaFarmatify {
         public ciudad?: string,
         public provincia?: string,
         public titular?: string,
-        public farmacias?: ISubscripcionFarmatify[]
+        public stocks?: IStockFarmatify[],
+        public subscripciones?: ISubscripcionFarmatify[]
     ) {}
 }

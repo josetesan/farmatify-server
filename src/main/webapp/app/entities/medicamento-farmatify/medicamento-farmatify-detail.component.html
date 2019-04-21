@@ -9,10 +9,6 @@
                 <dd>
                     <span>{{medicamento.nombre}}</span>
                 </dd>
-                <dt><span jhiTranslate="farmatifyApp.medicamento.stock">Stock</span></dt>
-                <dd>
-                    <span>{{medicamento.stock}}</span>
-                </dd>
                 <dt><span jhiTranslate="farmatifyApp.medicamento.pvp">Pvp</span></dt>
                 <dd>
                     <span>{{medicamento.pvp}}</span>
@@ -21,10 +17,10 @@
                 <dd>
                     <span>{{medicamento.unidades}}</span>
                 </dd>
-                <dt><span jhiTranslate="farmatifyApp.medicamento.subscripcion">Subscripcion</span></dt>
+                <dt><span jhiTranslate="farmatifyApp.medicamento.stock">Stock</span></dt>
                 <dd>
-                    <div *ngIf="medicamento.subscripcionId">
-                        <a [routerLink]="['/subscripcion-farmatify', medicamento.subscripcionId, 'view']">{{medicamento.subscripcionId}}</a>
+                    <div *ngIf="medicamento.stockId">
+                        <a [routerLink]="['/stock-farmatify', medicamento.stockId, 'view']">{{medicamento.stockId}}</a>
                     </div>
                 </dd>
             </dl>

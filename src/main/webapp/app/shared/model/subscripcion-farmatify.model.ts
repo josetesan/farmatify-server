@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IMedicamentoFarmatify } from 'app/shared/model/medicamento-farmatify.model';
 
 export interface ISubscripcionFarmatify {
     id?: number;
@@ -7,7 +6,7 @@ export interface ISubscripcionFarmatify {
     fechaFin?: Moment;
     farmaciaId?: number;
     usuarioId?: number;
-    medicamentos?: IMedicamentoFarmatify[];
+    medicamentoId?: number;
 }
 
 export class SubscripcionFarmatify implements ISubscripcionFarmatify {
@@ -17,6 +16,6 @@ export class SubscripcionFarmatify implements ISubscripcionFarmatify {
         public fechaFin?: Moment,
         public farmaciaId?: number,
         public usuarioId?: number,
-        public medicamentos?: IMedicamentoFarmatify[]
+        public medicamentoId?: number
     ) {}
 }

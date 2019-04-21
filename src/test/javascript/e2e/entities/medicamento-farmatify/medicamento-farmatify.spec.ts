@@ -41,13 +41,11 @@ describe('Medicamento e2e test', () => {
         await medicamentoComponentsPage.clickOnCreateButton();
         await promise.all([
             medicamentoUpdatePage.setNombreInput('nombre'),
-            medicamentoUpdatePage.setStockInput('5'),
             medicamentoUpdatePage.setPvpInput('5'),
             medicamentoUpdatePage.setUnidadesInput('5'),
-            medicamentoUpdatePage.subscripcionSelectLastOption()
+            medicamentoUpdatePage.stockSelectLastOption()
         ]);
         expect(await medicamentoUpdatePage.getNombreInput()).to.eq('nombre');
-        expect(await medicamentoUpdatePage.getStockInput()).to.eq('5');
         expect(await medicamentoUpdatePage.getPvpInput()).to.eq('5');
         expect(await medicamentoUpdatePage.getUnidadesInput()).to.eq('5');
         await medicamentoUpdatePage.save();

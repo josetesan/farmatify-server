@@ -11,14 +11,12 @@ public class MedicamentoDTO implements Serializable {
 
     private String nombre;
 
-    private Integer stock;
-
     private Double pvp;
 
     private Integer unidades;
 
 
-    private Long subscripcionId;
+    private Long stockId;
 
     public Long getId() {
         return id;
@@ -34,14 +32,6 @@ public class MedicamentoDTO implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
     }
 
     public Double getPvp() {
@@ -60,12 +50,12 @@ public class MedicamentoDTO implements Serializable {
         this.unidades = unidades;
     }
 
-    public Long getSubscripcionId() {
-        return subscripcionId;
+    public Long getStockId() {
+        return stockId;
     }
 
-    public void setSubscripcionId(Long subscripcionId) {
-        this.subscripcionId = subscripcionId;
+    public void setStockId(Long stockId) {
+        this.stockId = stockId;
     }
 
     @Override
@@ -94,10 +84,9 @@ public class MedicamentoDTO implements Serializable {
         return "MedicamentoDTO{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
-            ", stock=" + getStock() +
             ", pvp=" + getPvp() +
             ", unidades=" + getUnidades() +
-            ", subscripcion=" + getSubscripcionId() +
+            ", stock=" + getStockId() +
             "}";
     }
 }
