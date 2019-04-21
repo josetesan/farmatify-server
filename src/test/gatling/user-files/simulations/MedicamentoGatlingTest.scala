@@ -73,7 +73,6 @@ class MedicamentoGatlingTest extends Simulation {
             .body(StringBody("""{
                 "id":null
                 , "nombre":"SAMPLE_TEXT"
-                , "stock":"0"
                 , "pvp":null
                 , "unidades":"0"
                 }""")).asJSON

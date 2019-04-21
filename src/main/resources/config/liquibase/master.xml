@@ -11,9 +11,11 @@
     <include file="config/liquibase/changelog/20190421183032_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190421183033_added_entity_Subscripcion.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190421184624_added_entity_Usuario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190421185501_added_entity_Stock.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20190421183029_added_entity_constraints_Medicamento.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190421183030_added_entity_constraints_Posologia.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190421183033_added_entity_constraints_Subscripcion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190421185501_added_entity_constraints_Stock.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

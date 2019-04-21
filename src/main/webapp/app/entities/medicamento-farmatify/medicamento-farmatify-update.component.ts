@@ -6,8 +6,8 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IMedicamentoFarmatify } from 'app/shared/model/medicamento-farmatify.model';
 import { MedicamentoFarmatifyService } from './medicamento-farmatify.service';
-import { ISubscripcionFarmatify } from 'app/shared/model/subscripcion-farmatify.model';
-import { SubscripcionFarmatifyService } from 'app/entities/subscripcion-farmatify';
+import { IStockFarmatify } from 'app/shared/model/stock-farmatify.model';
+import { StockFarmatifyService } from 'app/entities/stock-farmatify';
 
 @Component({
     selector: 'jhi-medicamento-farmatify-update',
@@ -17,12 +17,12 @@ export class MedicamentoFarmatifyUpdateComponent implements OnInit {
     medicamento: IMedicamentoFarmatify;
     isSaving: boolean;
 
-    subscripcions: ISubscripcionFarmatify[];
+    stocks: IStockFarmatify[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected medicamentoService: MedicamentoFarmatifyService,
-        protected subscripcionService: SubscripcionFarmatifyService,
+        protected stockService: StockFarmatifyService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -31,14 +31,29 @@ export class MedicamentoFarmatifyUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ medicamento }) => {
             this.medicamento = medicamento;
         });
-        this.subscripcionService
-            .query()
+        this.stockService
+            .query({ filter: 'medicamento-is-null' })
             .pipe(
-                filter((mayBeOk: HttpResponse<ISubscripcionFarmatify[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ISubscripcionFarmatify[]>) => response.body)
+                filter((mayBeOk: HttpResponse<IStockFarmatify[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IStockFarmatify[]>) => response.body)
             )
             .subscribe(
-                (res: ISubscripcionFarmatify[]) => (this.subscripcions = res),
+                (res: IStockFarmatify[]) => {
+                    if (!this.medicamento.stockId) {
+                        this.stocks = res;
+                    } else {
+                        this.stockService
+                            .find(this.medicamento.stockId)
+                            .pipe(
+                                filter((subResMayBeOk: HttpResponse<IStockFarmatify>) => subResMayBeOk.ok),
+                                map((subResponse: HttpResponse<IStockFarmatify>) => subResponse.body)
+                            )
+                            .subscribe(
+                                (subRes: IStockFarmatify) => (this.stocks = [subRes].concat(res)),
+                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
+                            );
+                    }
+                },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
     }
@@ -76,7 +91,7 @@ export class MedicamentoFarmatifyUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackSubscripcionById(index: number, item: ISubscripcionFarmatify) {
+    trackStockById(index: number, item: IStockFarmatify) {
         return item.id;
     }
 }

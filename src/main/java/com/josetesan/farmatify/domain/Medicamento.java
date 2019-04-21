@@ -2,7 +2,6 @@ package com.josetesan.farmatify.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -33,22 +32,19 @@ public class Medicamento implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "stock")
-    private Integer stock;
-
     @Column(name = "pvp")
     private Double pvp;
 
     @Column(name = "unidades")
     private Integer unidades;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Stock stock;
+
     @OneToMany(mappedBy = "medicamento")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Posologia> posologias = new HashSet<>();
-    @ManyToOne
-    @JsonIgnoreProperties("medicamentos")
-    private Subscripcion subscripcion;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -69,19 +65,6 @@ public class Medicamento implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public Medicamento stock(Integer stock) {
-        this.stock = stock;
-        return this;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
     }
 
     public Double getPvp() {
@@ -110,6 +93,19 @@ public class Medicamento implements Serializable {
         this.unidades = unidades;
     }
 
+    public Stock getStock() {
+        return stock;
+    }
+
+    public Medicamento stock(Stock stock) {
+        this.stock = stock;
+        return this;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+
     public Set<Posologia> getPosologias() {
         return posologias;
     }
@@ -119,13 +115,13 @@ public class Medicamento implements Serializable {
         return this;
     }
 
-    public Medicamento addPosologia(Posologia posologia) {
+    public Medicamento addPosologias(Posologia posologia) {
         this.posologias.add(posologia);
         posologia.setMedicamento(this);
         return this;
     }
 
-    public Medicamento removePosologia(Posologia posologia) {
+    public Medicamento removePosologias(Posologia posologia) {
         this.posologias.remove(posologia);
         posologia.setMedicamento(null);
         return this;
@@ -133,19 +129,6 @@ public class Medicamento implements Serializable {
 
     public void setPosologias(Set<Posologia> posologias) {
         this.posologias = posologias;
-    }
-
-    public Subscripcion getSubscripcion() {
-        return subscripcion;
-    }
-
-    public Medicamento subscripcion(Subscripcion subscripcion) {
-        this.subscripcion = subscripcion;
-        return this;
-    }
-
-    public void setSubscripcion(Subscripcion subscripcion) {
-        this.subscripcion = subscripcion;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -174,7 +157,6 @@ public class Medicamento implements Serializable {
         return "Medicamento{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
-            ", stock=" + getStock() +
             ", pvp=" + getPvp() +
             ", unidades=" + getUnidades() +
             "}";

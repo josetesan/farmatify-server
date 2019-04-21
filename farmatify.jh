@@ -1,6 +1,5 @@
 entity Medicamento {
 	nombre String,
-    stock Integer,
     pvp Double,
     unidades Integer
 }
@@ -25,18 +24,29 @@ entity Usuario {
     password String,
     nombre String
 }
+entity Stock {
+   unidades Integer,
+   fechaRepuesta Instant
+}
 
 entity Subscripcion {
    fechaInicio Instant,
    fechaFin Instant
 }
 
-relationship OneToMany {
-	Farmacia{farmacia} to Subscripcion,
-	Usuario{usuario} to Subscripcion,
-	Subscripcion{medicamento} to Medicamento,
-    Medicamento{posologia} to Posologia
+relationship OneToOne {
+   Medicamento{stock} to Stock,
+   Subscripcion{medicamento} to Medicamento
 }
+
+relationship OneToMany {
+    Farmacia{stocks} to Stock
+	Farmacia{subscripciones} to Subscripcion,
+	Usuario{subscripciones} to Subscripcion,
+	Medicamento{posologias} to Posologia
+}
+
+
 
 
 // Use Data Transfert Objects (DTO)

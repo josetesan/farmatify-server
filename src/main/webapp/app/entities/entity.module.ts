@@ -43,6 +43,30 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'subscripcion-farmatify',
                 loadChildren: './subscripcion-farmatify/subscripcion-farmatify.module#FarmatifySubscripcionFarmatifyModule'
+            },
+            {
+                path: 'medicamento-farmatify',
+                loadChildren: './medicamento-farmatify/medicamento-farmatify.module#FarmatifyMedicamentoFarmatifyModule'
+            },
+            {
+                path: 'posologia-farmatify',
+                loadChildren: './posologia-farmatify/posologia-farmatify.module#FarmatifyPosologiaFarmatifyModule'
+            },
+            {
+                path: 'farmacia-farmatify',
+                loadChildren: './farmacia-farmatify/farmacia-farmatify.module#FarmatifyFarmaciaFarmatifyModule'
+            },
+            {
+                path: 'usuario-farmatify',
+                loadChildren: './usuario-farmatify/usuario-farmatify.module#FarmatifyUsuarioFarmatifyModule'
+            },
+            {
+                path: 'stock-farmatify',
+                loadChildren: './stock-farmatify/stock-farmatify.module#FarmatifyStockFarmatifyModule'
+            },
+            {
+                path: 'subscripcion-farmatify',
+                loadChildren: './subscripcion-farmatify/subscripcion-farmatify.module#FarmatifySubscripcionFarmatifyModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

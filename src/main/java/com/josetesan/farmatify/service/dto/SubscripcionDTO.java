@@ -19,6 +19,8 @@ public class SubscripcionDTO implements Serializable {
 
     private Long usuarioId;
 
+    private Long medicamentoId;
+
     public Long getId() {
         return id;
     }
@@ -59,6 +61,14 @@ public class SubscripcionDTO implements Serializable {
         this.usuarioId = usuarioId;
     }
 
+    public Long getMedicamentoId() {
+        return medicamentoId;
+    }
+
+    public void setMedicamentoId(Long medicamentoId) {
+        this.medicamentoId = medicamentoId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -88,6 +98,7 @@ public class SubscripcionDTO implements Serializable {
             ", fechaFin='" + getFechaFin() + "'" +
             ", farmacia=" + getFarmaciaId() +
             ", usuario=" + getUsuarioId() +
+            ", medicamento=" + getMedicamentoId() +
             "}";
     }
 }

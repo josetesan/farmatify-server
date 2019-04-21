@@ -34,6 +34,7 @@
             <th><span jhiTranslate="farmatifyApp.subscripcion.fechaFin">Fecha Fin</span></th>
             <th><span jhiTranslate="farmatifyApp.subscripcion.farmacia">Farmacia</span></th>
             <th><span jhiTranslate="farmatifyApp.subscripcion.usuario">Usuario</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.medicamento">Medicamento</span></th>
             <th></th>
             </tr>
             </thead>
@@ -50,6 +51,11 @@
                 <td>
                     <div *ngIf="subscripcion.usuarioId">
                         <a [routerLink]="['../usuario-farmatify', subscripcion.usuarioId , 'view' ]" >{{subscripcion.usuarioId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="subscripcion.medicamentoId">
+                        <a [routerLink]="['../medicamento-farmatify', subscripcion.medicamentoId , 'view' ]" >{{subscripcion.medicamentoId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

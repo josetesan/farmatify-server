@@ -43,7 +43,8 @@ describe('Subscripcion e2e test', () => {
             subscripcionUpdatePage.setFechaInicioInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
             subscripcionUpdatePage.setFechaFinInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
             subscripcionUpdatePage.farmaciaSelectLastOption(),
-            subscripcionUpdatePage.usuarioSelectLastOption()
+            subscripcionUpdatePage.usuarioSelectLastOption(),
+            subscripcionUpdatePage.medicamentoSelectLastOption()
         ]);
         expect(await subscripcionUpdatePage.getFechaInicioInput()).to.contain('2001-01-01T02:30');
         expect(await subscripcionUpdatePage.getFechaFinInput()).to.contain('2001-01-01T02:30');

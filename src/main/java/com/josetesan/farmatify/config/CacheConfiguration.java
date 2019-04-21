@@ -52,6 +52,10 @@ public class CacheConfiguration {
             cm.createCache(com.josetesan.farmatify.domain.Usuario.class.getName(), jcacheConfiguration);
             cm.createCache(com.josetesan.farmatify.domain.Usuario.class.getName() + ".usuarios", jcacheConfiguration);
             cm.createCache(com.josetesan.farmatify.domain.Subscripcion.class.getName() + ".medicamentos", jcacheConfiguration);
+            cm.createCache(com.josetesan.farmatify.domain.Farmacia.class.getName() + ".stocks", jcacheConfiguration);
+            cm.createCache(com.josetesan.farmatify.domain.Farmacia.class.getName() + ".subscripciones", jcacheConfiguration);
+            cm.createCache(com.josetesan.farmatify.domain.Usuario.class.getName() + ".subscripciones", jcacheConfiguration);
+            cm.createCache(com.josetesan.farmatify.domain.Stock.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

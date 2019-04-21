@@ -24,10 +24,12 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "medicamento",
             "otherEntityRelationshipName": "subscripcion",
-            "relationshipName": "medicamento"
+            "relationshipName": "medicamento",
+            "otherEntityField": "id",
+            "ownerSide": true
         }
     ],
     "changelogDate": "20190421183033",

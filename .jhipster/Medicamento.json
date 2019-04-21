@@ -6,10 +6,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "stock",
-            "fieldType": "Integer"
-        },
-        {
             "fieldName": "pvp",
             "fieldType": "Double"
         },
@@ -20,16 +16,18 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "stock",
+            "otherEntityRelationshipName": "medicamento",
+            "relationshipName": "stock",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
             "relationshipType": "one-to-many",
             "otherEntityName": "posologia",
             "otherEntityRelationshipName": "medicamento",
-            "relationshipName": "posologia"
-        },
-        {
-            "relationshipName": "subscripcion",
-            "otherEntityName": "subscripcion",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "relationshipName": "posologias"
         }
     ],
     "changelogDate": "20190421183029",

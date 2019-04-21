@@ -19,7 +19,7 @@
             "usuario": "Usuario",
             "password": "Password",
             "nombre": "Nombre",
-            "usuario": "Usuario"
+            "subscripciones": "Subscripciones"
         }
     }
 }

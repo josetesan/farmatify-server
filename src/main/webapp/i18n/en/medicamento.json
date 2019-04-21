@@ -17,11 +17,10 @@
                 "title": "Medicamento"
             },
             "nombre": "Nombre",
-            "stock": "Stock",
             "pvp": "Pvp",
             "unidades": "Unidades",
-            "posologia": "Posologia",
-            "subscripcion": "Subscripcion"
+            "stock": "Stock",
+            "posologias": "Posologias"
         }
     }
 }

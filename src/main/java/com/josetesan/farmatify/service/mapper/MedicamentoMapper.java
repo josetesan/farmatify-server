@@ -8,14 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Medicamento and its DTO MedicamentoDTO.
  */
-@Mapper(componentModel = "spring", uses = {SubscripcionMapper.class})
+@Mapper(componentModel = "spring", uses = {StockMapper.class})
 public interface MedicamentoMapper extends EntityMapper<MedicamentoDTO, Medicamento> {
 
-    @Mapping(source = "subscripcion.id", target = "subscripcionId")
+    @Mapping(source = "stock.id", target = "stockId")
     MedicamentoDTO toDto(Medicamento medicamento);
 
+    @Mapping(source = "stockId", target = "stock")
     @Mapping(target = "posologias", ignore = true)
-    @Mapping(source = "subscripcionId", target = "subscripcion")
     Medicamento toEntity(MedicamentoDTO medicamentoDTO);
 
     default Medicamento fromId(Long id) {

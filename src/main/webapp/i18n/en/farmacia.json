@@ -21,7 +21,8 @@
             "ciudad": "Ciudad",
             "provincia": "Provincia",
             "titular": "Titular",
-            "farmacia": "Farmacia"
+            "stocks": "Stocks",
+            "subscripciones": "Subscripciones"
         }
     }
 }

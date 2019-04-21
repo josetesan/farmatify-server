@@ -15,11 +15,6 @@
                         [(ngModel)]="medicamento.nombre" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.stock" for="field_stock">Stock</label>
-                    <input type="number" class="form-control" name="stock" id="field_stock"
-                        [(ngModel)]="medicamento.stock" />
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.pvp" for="field_pvp">Pvp</label>
                     <input type="number" class="form-control" name="pvp" id="field_pvp"
                         [(ngModel)]="medicamento.pvp" />
@@ -31,10 +26,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.subscripcion" for="field_subscripcion">Subscripcion</label>
-                    <select class="form-control" id="field_subscripcion" name="subscripcion" [(ngModel)]="medicamento.subscripcionId" >
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.medicamento.stock" for="field_stock">Stock</label>
+                    <select class="form-control" id="field_stock" name="stock" [(ngModel)]="medicamento.stockId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="subscripcionOption.id" *ngFor="let subscripcionOption of subscripcions; trackBy: trackSubscripcionById">{{subscripcionOption.id}}</option>
+                        <option [ngValue]="stockOption.id" *ngFor="let stockOption of stocks; trackBy: trackStockById">{{stockOption.id}}</option>
                     </select>
                 </div>
             </div>

@@ -5,7 +5,7 @@ export interface IUsuarioFarmatify {
     usuario?: string;
     password?: string;
     nombre?: string;
-    usuarios?: ISubscripcionFarmatify[];
+    subscripciones?: ISubscripcionFarmatify[];
 }
 
 export class UsuarioFarmatify implements IUsuarioFarmatify {
@@ -14,6 +14,6 @@ export class UsuarioFarmatify implements IUsuarioFarmatify {
         public usuario?: string,
         public password?: string,
         public nombre?: string,
-        public usuarios?: ISubscripcionFarmatify[]
+        public subscripciones?: ISubscripcionFarmatify[]
     ) {}
 }
