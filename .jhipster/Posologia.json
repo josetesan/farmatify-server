@@ -1,0 +1,31 @@
+{
+    "name": "Posologia",
+    "fields": [
+        {
+            "fieldName": "dias",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "horas",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "medicamento",
+            "otherEntityName": "medicamento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190421183030",
+    "entityTableName": "posologia",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "farmatify"
+}

@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="farmatifyApp.subscripcion.home.title">Subscripcions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-subscripcion-farmatify" [routerLink]="['/subscripcion-farmatify/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="farmatifyApp.subscripcion.home.createLabel">
+            Create new Subscripcion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'farmatifyApp.subscripcion.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="subscripcions">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.idMedicamento">Id Medicamento</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.idCliente">Id Cliente</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.idFarmacia">Id Farmacia</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.farmacia">Farmacia</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.cliente">Cliente</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.idMedicamento">Id Medicamento</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.idFarmacia">Id Farmacia</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.idCliente">Id Cliente</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let subscripcion of subscripcions ;trackBy: trackId">
+                <td><a [routerLink]="['/subscripcion-farmatify', subscripcion.id, 'view' ]">{{subscripcion.id}}</a></td>
+                <td>{{subscripcion.idMedicamento}}</td>
+                <td>{{subscripcion.idCliente}}</td>
+                <td>{{subscripcion.idFarmacia}}</td>
+                <td>
+                    <div *ngIf="subscripcion.farmaciaId">
+                        <a [routerLink]="['../farmacia-farmatify', subscripcion.farmaciaId , 'view' ]" >{{subscripcion.farmaciaId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="subscripcion.clienteId">
+                        <a [routerLink]="['../cliente-farmatify', subscripcion.clienteId , 'view' ]" >{{subscripcion.clienteId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="subscripcion.idMedicamentoId">
+                        <a [routerLink]="['../medicamento-farmatify', subscripcion.idMedicamentoId , 'view' ]" >{{subscripcion.idMedicamentoId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="subscripcion.idFarmaciaId">
+                        <a [routerLink]="['../farmacia-farmatify', subscripcion.idFarmaciaId , 'view' ]" >{{subscripcion.idFarmaciaId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="subscripcion.idClienteId">
+                        <a [routerLink]="['../cliente-farmatify', subscripcion.idClienteId , 'view' ]" >{{subscripcion.idClienteId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/subscripcion-farmatify', subscripcion.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/subscripcion-farmatify', subscripcion.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'subscripcion-farmatify', { outlets: { popup: subscripcion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

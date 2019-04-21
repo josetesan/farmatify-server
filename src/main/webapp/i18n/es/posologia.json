@@ -1,0 +1,24 @@
+{
+    "farmatifyApp": {
+        "posologia": {
+            "home": {
+                "title": "Posologias",
+                "createLabel": "Crear nuevo Posologia",
+                "createOrEditLabel": "Crear o editar Posologia",
+                "search": "Search for Posologia"
+            },
+            "created": "Un nuevo Posologia ha sido creado con el identificador {{ param }}",
+            "updated": "Un Posologia ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Posologia ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Posologia {{ id }}?"
+            },
+            "detail": {
+                "title": "Posologia"
+            },
+            "dias": "Dias",
+            "horas": "Horas",
+            "medicamento": "Medicamento"
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Farmacia",
+    "fields": [
+        {
+            "fieldName": "calle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codigoPostal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ciudad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "provincia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "titular",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subscripcion",
+            "otherEntityRelationshipName": "farmacia",
+            "relationshipName": "idFarmacia"
+        }
+    ],
+    "changelogDate": "20190421183031",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "farmacia",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "farmatify"
+}

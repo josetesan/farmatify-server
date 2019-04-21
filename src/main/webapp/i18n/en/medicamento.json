@@ -1,0 +1,27 @@
+{
+    "farmatifyApp": {
+        "medicamento": {
+            "home": {
+                "title": "Medicamentos",
+                "createLabel": "Create a new Medicamento",
+                "createOrEditLabel": "Create or edit a Medicamento",
+                "search": "Search for Medicamento"
+            },
+            "created": "A new Medicamento is created with identifier {{ param }}",
+            "updated": "A Medicamento is updated with identifier {{ param }}",
+            "deleted": "A Medicamento is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Medicamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Medicamento"
+            },
+            "nombre": "Nombre",
+            "stock": "Stock",
+            "pvp": "Pvp",
+            "unidades": "Unidades",
+            "idPosologia": "Id Posologia",
+            "subscripcion": "Subscripcion"
+        }
+    }
+}

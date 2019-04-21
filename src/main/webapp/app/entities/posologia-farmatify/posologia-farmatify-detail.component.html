@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="posologia">
+            <h2><span jhiTranslate="farmatifyApp.posologia.detail.title">Posologia</span> {{posologia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="farmatifyApp.posologia.dias">Dias</span></dt>
+                <dd>
+                    <span>{{posologia.dias}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmatifyApp.posologia.horas">Horas</span></dt>
+                <dd>
+                    <span>{{posologia.horas}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmatifyApp.posologia.medicamento">Medicamento</span></dt>
+                <dd>
+                    <div *ngIf="posologia.medicamentoId">
+                        <a [routerLink]="['/medicamento-farmatify', posologia.medicamentoId, 'view']">{{posologia.medicamentoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/posologia-farmatify', posologia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
