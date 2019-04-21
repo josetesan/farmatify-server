@@ -46,9 +46,6 @@ relationship OneToOne {
 	Subscripcion{idCliente} to Cliente
 }
 
-// Set pagination options
-paginate Medicamentos with infinite-scroll
-
 
 // Use Data Transfert Objects (DTO)
 dto * with mapstruct
