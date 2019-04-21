@@ -6,7 +6,7 @@ export interface IMedicamentoFarmatify {
     stock?: number;
     pvp?: number;
     unidades?: number;
-    idPosologias?: IPosologiaFarmatify[];
+    posologias?: IPosologiaFarmatify[];
     subscripcionId?: number;
 }
 
@@ -17,7 +17,7 @@ export class MedicamentoFarmatify implements IMedicamentoFarmatify {
         public stock?: number,
         public pvp?: number,
         public unidades?: number,
-        public idPosologias?: IPosologiaFarmatify[],
+        public posologias?: IPosologiaFarmatify[],
         public subscripcionId?: number
     ) {}
 }

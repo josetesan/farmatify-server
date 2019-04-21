@@ -26,6 +26,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.List;
 
@@ -47,14 +49,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = FarmatifyApp.class)
 public class SubscripcionResourceIntTest {
 
-    private static final Long DEFAULT_ID_MEDICAMENTO = 1L;
-    private static final Long UPDATED_ID_MEDICAMENTO = 2L;
+    private static final Instant DEFAULT_FECHA_INICIO = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_FECHA_INICIO = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final Long DEFAULT_ID_CLIENTE = 1L;
-    private static final Long UPDATED_ID_CLIENTE = 2L;
-
-    private static final Long DEFAULT_ID_FARMACIA = 1L;
-    private static final Long UPDATED_ID_FARMACIA = 2L;
+    private static final Instant DEFAULT_FECHA_FIN = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_FECHA_FIN = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     @Autowired
     private SubscripcionRepository subscripcionRepository;
@@ -112,9 +111,8 @@ public class SubscripcionResourceIntTest {
      */
     public static Subscripcion createEntity(EntityManager em) {
         Subscripcion subscripcion = new Subscripcion()
-            .idMedicamento(DEFAULT_ID_MEDICAMENTO)
-            .idCliente(DEFAULT_ID_CLIENTE)
-            .idFarmacia(DEFAULT_ID_FARMACIA);
+            .fechaInicio(DEFAULT_FECHA_INICIO)
+            .fechaFin(DEFAULT_FECHA_FIN);
         return subscripcion;
     }
 
@@ -139,9 +137,8 @@ public class SubscripcionResourceIntTest {
         List<Subscripcion> subscripcionList = subscripcionRepository.findAll();
         assertThat(subscripcionList).hasSize(databaseSizeBeforeCreate + 1);
         Subscripcion testSubscripcion = subscripcionList.get(subscripcionList.size() - 1);
-        assertThat(testSubscripcion.getIdMedicamento()).isEqualTo(DEFAULT_ID_MEDICAMENTO);
-        assertThat(testSubscripcion.getIdCliente()).isEqualTo(DEFAULT_ID_CLIENTE);
-        assertThat(testSubscripcion.getIdFarmacia()).isEqualTo(DEFAULT_ID_FARMACIA);
+        assertThat(testSubscripcion.getFechaInicio()).isEqualTo(DEFAULT_FECHA_INICIO);
+        assertThat(testSubscripcion.getFechaFin()).isEqualTo(DEFAULT_FECHA_FIN);
 
         // Validate the Subscripcion in Elasticsearch
         verify(mockSubscripcionSearchRepository, times(1)).save(testSubscripcion);
@@ -181,9 +178,8 @@ public class SubscripcionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(subscripcion.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idMedicamento").value(hasItem(DEFAULT_ID_MEDICAMENTO.intValue())))
-            .andExpect(jsonPath("$.[*].idCliente").value(hasItem(DEFAULT_ID_CLIENTE.intValue())))
-            .andExpect(jsonPath("$.[*].idFarmacia").value(hasItem(DEFAULT_ID_FARMACIA.intValue())));
+            .andExpect(jsonPath("$.[*].fechaInicio").value(hasItem(DEFAULT_FECHA_INICIO.toString())))
+            .andExpect(jsonPath("$.[*].fechaFin").value(hasItem(DEFAULT_FECHA_FIN.toString())));
     }
     
     @Test
@@ -197,9 +193,8 @@ public class SubscripcionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(subscripcion.getId().intValue()))
-            .andExpect(jsonPath("$.idMedicamento").value(DEFAULT_ID_MEDICAMENTO.intValue()))
-            .andExpect(jsonPath("$.idCliente").value(DEFAULT_ID_CLIENTE.intValue()))
-            .andExpect(jsonPath("$.idFarmacia").value(DEFAULT_ID_FARMACIA.intValue()));
+            .andExpect(jsonPath("$.fechaInicio").value(DEFAULT_FECHA_INICIO.toString()))
+            .andExpect(jsonPath("$.fechaFin").value(DEFAULT_FECHA_FIN.toString()));
     }
 
     @Test
@@ -223,9 +218,8 @@ public class SubscripcionResourceIntTest {
         // Disconnect from session so that the updates on updatedSubscripcion are not directly saved in db
         em.detach(updatedSubscripcion);
         updatedSubscripcion
-            .idMedicamento(UPDATED_ID_MEDICAMENTO)
-            .idCliente(UPDATED_ID_CLIENTE)
-            .idFarmacia(UPDATED_ID_FARMACIA);
+            .fechaInicio(UPDATED_FECHA_INICIO)
+            .fechaFin(UPDATED_FECHA_FIN);
         SubscripcionDTO subscripcionDTO = subscripcionMapper.toDto(updatedSubscripcion);
 
         restSubscripcionMockMvc.perform(put("/api/subscripcions")
@@ -237,9 +231,8 @@ public class SubscripcionResourceIntTest {
         List<Subscripcion> subscripcionList = subscripcionRepository.findAll();
         assertThat(subscripcionList).hasSize(databaseSizeBeforeUpdate);
         Subscripcion testSubscripcion = subscripcionList.get(subscripcionList.size() - 1);
-        assertThat(testSubscripcion.getIdMedicamento()).isEqualTo(UPDATED_ID_MEDICAMENTO);
-        assertThat(testSubscripcion.getIdCliente()).isEqualTo(UPDATED_ID_CLIENTE);
-        assertThat(testSubscripcion.getIdFarmacia()).isEqualTo(UPDATED_ID_FARMACIA);
+        assertThat(testSubscripcion.getFechaInicio()).isEqualTo(UPDATED_FECHA_INICIO);
+        assertThat(testSubscripcion.getFechaFin()).isEqualTo(UPDATED_FECHA_FIN);
 
         // Validate the Subscripcion in Elasticsearch
         verify(mockSubscripcionSearchRepository, times(1)).save(testSubscripcion);
@@ -300,9 +293,8 @@ public class SubscripcionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(subscripcion.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idMedicamento").value(hasItem(DEFAULT_ID_MEDICAMENTO.intValue())))
-            .andExpect(jsonPath("$.[*].idCliente").value(hasItem(DEFAULT_ID_CLIENTE.intValue())))
-            .andExpect(jsonPath("$.[*].idFarmacia").value(hasItem(DEFAULT_ID_FARMACIA.intValue())));
+            .andExpect(jsonPath("$.[*].fechaInicio").value(hasItem(DEFAULT_FECHA_INICIO.toString())))
+            .andExpect(jsonPath("$.[*].fechaFin").value(hasItem(DEFAULT_FECHA_FIN.toString())));
     }
 
     @Test

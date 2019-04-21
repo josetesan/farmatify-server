@@ -72,9 +72,8 @@ class SubscripcionGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "idMedicamento":null
-                , "idCliente":null
-                , "idFarmacia":null
+                , "fechaInicio":"2020-01-01T00:00:00.000Z"
+                , "fechaFin":"2020-01-01T00:00:00.000Z"
                 }""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_subscripcion_url"))).exitHereIfFailed

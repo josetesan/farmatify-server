@@ -20,7 +20,7 @@
             "stock": "Stock",
             "pvp": "Pvp",
             "unidades": "Unidades",
-            "idPosologia": "Id Posologia",
+            "posologia": "Posologia",
             "subscripcion": "Subscripcion"
         }
     }

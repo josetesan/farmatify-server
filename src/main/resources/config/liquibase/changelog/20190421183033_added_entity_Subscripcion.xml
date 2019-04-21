@@ -21,15 +21,11 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_medicamento" type="bigint">
+            <column name="fecha_inicio" type="datetime">
                 <constraints nullable="true" />
             </column>
 
-            <column name="id_cliente" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="id_farmacia" type="bigint">
+            <column name="fecha_fin" type="datetime">
                 <constraints nullable="true" />
             </column>
 
@@ -37,18 +33,14 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="cliente_id" type="bigint">
+            <column name="usuario_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_medicamento_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_subscripcion_id_medicamento_id" />
-            </column>            <column name="id_farmacia_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_subscripcion_id_farmacia_id" />
-            </column>            <column name="id_cliente_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_subscripcion_id_cliente_id" />
-            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
+        <dropDefaultValue tableName="subscripcion" columnName="fecha_inicio" columnDataType="datetime"/>
+        <dropDefaultValue tableName="subscripcion" columnName="fecha_fin" columnDataType="datetime"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

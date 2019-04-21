@@ -34,7 +34,7 @@ public class Posologia implements Serializable {
     private Integer horas;
 
     @ManyToOne
-    @JsonIgnoreProperties("idPosologias")
+    @JsonIgnoreProperties("posologias")
     private Medicamento medicamento;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

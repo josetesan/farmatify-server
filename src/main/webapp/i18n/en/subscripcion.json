@@ -16,15 +16,11 @@
             "detail": {
                 "title": "Subscripcion"
             },
-            "idMedicamento": "Id Medicamento",
-            "idCliente": "Id Cliente",
-            "idFarmacia": "Id Farmacia",
+            "fechaInicio": "Fecha Inicio",
+            "fechaFin": "Fecha Fin",
             "farmacia": "Farmacia",
-            "cliente": "Cliente",
-            "idMedicamento": "Id Medicamento",
-            "idFarmacia": "Id Farmacia",
-            "idCliente": "Id Cliente",
-            "idMedicamento": "Id Medicamento"
+            "usuario": "Usuario",
+            "medicamento": "Medicamento"
         }
     }
 }

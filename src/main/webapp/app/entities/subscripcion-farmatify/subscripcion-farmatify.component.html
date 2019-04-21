@@ -30,46 +30,26 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="farmatifyApp.subscripcion.idMedicamento">Id Medicamento</span></th>
-            <th><span jhiTranslate="farmatifyApp.subscripcion.idCliente">Id Cliente</span></th>
-            <th><span jhiTranslate="farmatifyApp.subscripcion.idFarmacia">Id Farmacia</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.fechaInicio">Fecha Inicio</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.fechaFin">Fecha Fin</span></th>
             <th><span jhiTranslate="farmatifyApp.subscripcion.farmacia">Farmacia</span></th>
-            <th><span jhiTranslate="farmatifyApp.subscripcion.cliente">Cliente</span></th>
-            <th><span jhiTranslate="farmatifyApp.subscripcion.idMedicamento">Id Medicamento</span></th>
-            <th><span jhiTranslate="farmatifyApp.subscripcion.idFarmacia">Id Farmacia</span></th>
-            <th><span jhiTranslate="farmatifyApp.subscripcion.idCliente">Id Cliente</span></th>
+            <th><span jhiTranslate="farmatifyApp.subscripcion.usuario">Usuario</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let subscripcion of subscripcions ;trackBy: trackId">
                 <td><a [routerLink]="['/subscripcion-farmatify', subscripcion.id, 'view' ]">{{subscripcion.id}}</a></td>
-                <td>{{subscripcion.idMedicamento}}</td>
-                <td>{{subscripcion.idCliente}}</td>
-                <td>{{subscripcion.idFarmacia}}</td>
+                <td>{{subscripcion.fechaInicio | date:'medium'}}</td>
+                <td>{{subscripcion.fechaFin | date:'medium'}}</td>
                 <td>
                     <div *ngIf="subscripcion.farmaciaId">
                         <a [routerLink]="['../farmacia-farmatify', subscripcion.farmaciaId , 'view' ]" >{{subscripcion.farmaciaId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="subscripcion.clienteId">
-                        <a [routerLink]="['../cliente-farmatify', subscripcion.clienteId , 'view' ]" >{{subscripcion.clienteId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="subscripcion.idMedicamentoId">
-                        <a [routerLink]="['../medicamento-farmatify', subscripcion.idMedicamentoId , 'view' ]" >{{subscripcion.idMedicamentoId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="subscripcion.idFarmaciaId">
-                        <a [routerLink]="['../farmacia-farmatify', subscripcion.idFarmaciaId , 'view' ]" >{{subscripcion.idFarmaciaId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="subscripcion.idClienteId">
-                        <a [routerLink]="['../cliente-farmatify', subscripcion.idClienteId , 'view' ]" >{{subscripcion.idClienteId}}</a>
+                    <div *ngIf="subscripcion.usuarioId">
+                        <a [routerLink]="['../usuario-farmatify', subscripcion.usuarioId , 'view' ]" >{{subscripcion.usuarioId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

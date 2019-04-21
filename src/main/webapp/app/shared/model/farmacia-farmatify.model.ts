@@ -7,7 +7,7 @@ export interface IFarmaciaFarmatify {
     ciudad?: string;
     provincia?: string;
     titular?: string;
-    idFarmacias?: ISubscripcionFarmatify[];
+    farmacias?: ISubscripcionFarmatify[];
 }
 
 export class FarmaciaFarmatify implements IFarmaciaFarmatify {
@@ -18,6 +18,6 @@ export class FarmaciaFarmatify implements IFarmaciaFarmatify {
         public ciudad?: string,
         public provincia?: string,
         public titular?: string,
-        public idFarmacias?: ISubscripcionFarmatify[]
+        public farmacias?: ISubscripcionFarmatify[]
     ) {}
 }

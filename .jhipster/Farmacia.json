@@ -27,7 +27,7 @@
             "relationshipType": "one-to-many",
             "otherEntityName": "subscripcion",
             "otherEntityRelationshipName": "farmacia",
-            "relationshipName": "idFarmacia"
+            "relationshipName": "farmacia"
         }
     ],
     "changelogDate": "20190421183031",

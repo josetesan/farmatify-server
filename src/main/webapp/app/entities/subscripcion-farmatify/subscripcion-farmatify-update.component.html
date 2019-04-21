@@ -10,19 +10,18 @@
                         [(ngModel)]="subscripcion.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.idMedicamento" for="field_idMedicamento">Id Medicamento</label>
-                    <input type="number" class="form-control" name="idMedicamento" id="field_idMedicamento"
-                        [(ngModel)]="subscripcion.idMedicamento" />
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.fechaInicio" for="field_fechaInicio">Fecha Inicio</label>
+                    <div class="d-flex">
+                        <input id="field_fechaInicio" type="datetime-local" class="form-control" name="fechaInicio" [(ngModel)]="fechaInicio" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.idCliente" for="field_idCliente">Id Cliente</label>
-                    <input type="number" class="form-control" name="idCliente" id="field_idCliente"
-                        [(ngModel)]="subscripcion.idCliente" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.idFarmacia" for="field_idFarmacia">Id Farmacia</label>
-                    <input type="number" class="form-control" name="idFarmacia" id="field_idFarmacia"
-                        [(ngModel)]="subscripcion.idFarmacia" />
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.fechaFin" for="field_fechaFin">Fecha Fin</label>
+                    <div class="d-flex">
+                        <input id="field_fechaFin" type="datetime-local" class="form-control" name="fechaFin" [(ngModel)]="fechaFin" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -33,31 +32,10 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.cliente" for="field_cliente">Cliente</label>
-                    <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="subscripcion.clienteId" >
+                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.usuario" for="field_usuario">Usuario</label>
+                    <select class="form-control" id="field_usuario" name="usuario" [(ngModel)]="subscripcion.usuarioId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.idMedicamento" for="field_idMedicamento">Id Medicamento</label>
-                    <select class="form-control" id="field_idMedicamento" name="idMedicamento" [(ngModel)]="subscripcion.idMedicamentoId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="medicamentoOption.id" *ngFor="let medicamentoOption of idmedicamentos; trackBy: trackMedicamentoById">{{medicamentoOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.idFarmacia" for="field_idFarmacia">Id Farmacia</label>
-                    <select class="form-control" id="field_idFarmacia" name="idFarmacia" [(ngModel)]="subscripcion.idFarmaciaId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="farmaciaOption.id" *ngFor="let farmaciaOption of idfarmacias; trackBy: trackFarmaciaById">{{farmaciaOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="farmatifyApp.subscripcion.idCliente" for="field_idCliente">Id Cliente</label>
-                    <select class="form-control" id="field_idCliente" name="idCliente" [(ngModel)]="subscripcion.idClienteId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of idclientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                        <option [ngValue]="usuarioOption.id" *ngFor="let usuarioOption of usuarios; trackBy: trackUsuarioById">{{usuarioOption.id}}</option>
                     </select>
                 </div>
             </div>

@@ -46,7 +46,7 @@ public class Farmacia implements Serializable {
 
     @OneToMany(mappedBy = "farmacia")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Subscripcion> idFarmacias = new HashSet<>();
+    private Set<Subscripcion> farmacias = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -121,29 +121,29 @@ public class Farmacia implements Serializable {
         this.titular = titular;
     }
 
-    public Set<Subscripcion> getIdFarmacias() {
-        return idFarmacias;
+    public Set<Subscripcion> getFarmacias() {
+        return farmacias;
     }
 
-    public Farmacia idFarmacias(Set<Subscripcion> subscripcions) {
-        this.idFarmacias = subscripcions;
+    public Farmacia farmacias(Set<Subscripcion> subscripcions) {
+        this.farmacias = subscripcions;
         return this;
     }
 
-    public Farmacia addIdFarmacia(Subscripcion subscripcion) {
-        this.idFarmacias.add(subscripcion);
+    public Farmacia addFarmacia(Subscripcion subscripcion) {
+        this.farmacias.add(subscripcion);
         subscripcion.setFarmacia(this);
         return this;
     }
 
-    public Farmacia removeIdFarmacia(Subscripcion subscripcion) {
-        this.idFarmacias.remove(subscripcion);
+    public Farmacia removeFarmacia(Subscripcion subscripcion) {
+        this.farmacias.remove(subscripcion);
         subscripcion.setFarmacia(null);
         return this;
     }
 
-    public void setIdFarmacias(Set<Subscripcion> subscripcions) {
-        this.idFarmacias = subscripcions;
+    public void setFarmacias(Set<Subscripcion> subscripcions) {
+        this.farmacias = subscripcions;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

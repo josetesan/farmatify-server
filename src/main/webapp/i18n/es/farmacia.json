@@ -21,7 +21,7 @@
             "ciudad": "Ciudad",
             "provincia": "Provincia",
             "titular": "Titular",
-            "idFarmacia": "Id Farmacia"
+            "farmacia": "Farmacia"
         }
     }
 }
