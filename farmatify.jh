@@ -20,30 +20,22 @@ entity Farmacia {
     titular String
 }
 
-entity Cliente {
+entity Usuario {
     usuario String,
     password String,
     nombre String
 }
 
 entity Subscripcion {
-    idMedicamento Long,
-    idCliente Long,
-    idFarmacia Long
+   fechaInicio Instant,
+   fechaFin Instant
 }
-
 
 relationship OneToMany {
-	Farmacia{idFarmacia} to Subscripcion,
-	Cliente{idCliente} to Subscripcion,
-	Subscripcion{idMedicamento} to Medicamento,
-    Medicamento{idPosologia} to Posologia
-}
-
-relationship OneToOne {
-	Subscripcion{idMedicamento} to Medicamento,
-	Subscripcion{idFarmacia} to Farmacia,
-	Subscripcion{idCliente} to Cliente
+	Farmacia{farmacia} to Subscripcion,
+	Usuario{usuario} to Subscripcion,
+	Subscripcion{medicamento} to Medicamento,
+    Medicamento{posologia} to Posologia
 }
 
 
