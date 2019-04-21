@@ -5,17 +5,13 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="farmatifyApp.subscripcion.idMedicamento">Id Medicamento</span></dt>
+                <dt><span jhiTranslate="farmatifyApp.subscripcion.fechaInicio">Fecha Inicio</span></dt>
                 <dd>
-                    <span>{{subscripcion.idMedicamento}}</span>
+                    <span>{{subscripcion.fechaInicio}}</span>
                 </dd>
-                <dt><span jhiTranslate="farmatifyApp.subscripcion.idCliente">Id Cliente</span></dt>
+                <dt><span jhiTranslate="farmatifyApp.subscripcion.fechaFin">Fecha Fin</span></dt>
                 <dd>
-                    <span>{{subscripcion.idCliente}}</span>
-                </dd>
-                <dt><span jhiTranslate="farmatifyApp.subscripcion.idFarmacia">Id Farmacia</span></dt>
-                <dd>
-                    <span>{{subscripcion.idFarmacia}}</span>
+                    <span>{{subscripcion.fechaFin}}</span>
                 </dd>
                 <dt><span jhiTranslate="farmatifyApp.subscripcion.farmacia">Farmacia</span></dt>
                 <dd>
@@ -23,28 +19,10 @@
                         <a [routerLink]="['/farmacia-farmatify', subscripcion.farmaciaId, 'view']">{{subscripcion.farmaciaId}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="farmatifyApp.subscripcion.cliente">Cliente</span></dt>
+                <dt><span jhiTranslate="farmatifyApp.subscripcion.usuario">Usuario</span></dt>
                 <dd>
-                    <div *ngIf="subscripcion.clienteId">
-                        <a [routerLink]="['/cliente-farmatify', subscripcion.clienteId, 'view']">{{subscripcion.clienteId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="farmatifyApp.subscripcion.idMedicamento">Id Medicamento</span></dt>
-                <dd>
-                    <div *ngIf="subscripcion.idMedicamentoId">
-                        <a [routerLink]="['/medicamento-farmatify', subscripcion.idMedicamentoId, 'view']">{{subscripcion.idMedicamentoId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="farmatifyApp.subscripcion.idFarmacia">Id Farmacia</span></dt>
-                <dd>
-                    <div *ngIf="subscripcion.idFarmaciaId">
-                        <a [routerLink]="['/farmacia-farmatify', subscripcion.idFarmaciaId, 'view']">{{subscripcion.idFarmaciaId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="farmatifyApp.subscripcion.idCliente">Id Cliente</span></dt>
-                <dd>
-                    <div *ngIf="subscripcion.idClienteId">
-                        <a [routerLink]="['/cliente-farmatify', subscripcion.idClienteId, 'view']">{{subscripcion.idClienteId}}</a>
+                    <div *ngIf="subscripcion.usuarioId">
+                        <a [routerLink]="['/usuario-farmatify', subscripcion.usuarioId, 'view']">{{subscripcion.usuarioId}}</a>
                     </div>
                 </dd>
             </dl>

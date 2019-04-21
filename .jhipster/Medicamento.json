@@ -23,7 +23,7 @@
             "relationshipType": "one-to-many",
             "otherEntityName": "posologia",
             "otherEntityRelationshipName": "medicamento",
-            "relationshipName": "idPosologia"
+            "relationshipName": "posologia"
         },
         {
             "relationshipName": "subscripcion",

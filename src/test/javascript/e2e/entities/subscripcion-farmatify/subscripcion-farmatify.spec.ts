@@ -1,5 +1,5 @@
 /* tslint:disable no-unused-expression */
-import { browser, ExpectedConditions as ec, promise } from 'protractor';
+import { browser, ExpectedConditions as ec, protractor, promise } from 'protractor';
 import { NavBarPage, SignInPage } from '../../page-objects/jhi-page-objects';
 
 import { SubscripcionComponentsPage, SubscripcionDeleteDialog, SubscripcionUpdatePage } from './subscripcion-farmatify.page-object';
@@ -40,18 +40,13 @@ describe('Subscripcion e2e test', () => {
 
         await subscripcionComponentsPage.clickOnCreateButton();
         await promise.all([
-            subscripcionUpdatePage.setIdMedicamentoInput('5'),
-            subscripcionUpdatePage.setIdClienteInput('5'),
-            subscripcionUpdatePage.setIdFarmaciaInput('5'),
+            subscripcionUpdatePage.setFechaInicioInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
+            subscripcionUpdatePage.setFechaFinInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
             subscripcionUpdatePage.farmaciaSelectLastOption(),
-            subscripcionUpdatePage.clienteSelectLastOption(),
-            subscripcionUpdatePage.idMedicamentoSelectLastOption(),
-            subscripcionUpdatePage.idFarmaciaSelectLastOption(),
-            subscripcionUpdatePage.idClienteSelectLastOption()
+            subscripcionUpdatePage.usuarioSelectLastOption()
         ]);
-        expect(await subscripcionUpdatePage.getIdMedicamentoInput()).to.eq('5');
-        expect(await subscripcionUpdatePage.getIdClienteInput()).to.eq('5');
-        expect(await subscripcionUpdatePage.getIdFarmaciaInput()).to.eq('5');
+        expect(await subscripcionUpdatePage.getFechaInicioInput()).to.contain('2001-01-01T02:30');
+        expect(await subscripcionUpdatePage.getFechaFinInput()).to.contain('2001-01-01T02:30');
         await subscripcionUpdatePage.save();
         expect(await subscripcionUpdatePage.getSaveButton().isPresent()).to.be.false;
 

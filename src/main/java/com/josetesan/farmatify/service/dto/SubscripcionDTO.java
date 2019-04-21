@@ -1,4 +1,5 @@
 package com.josetesan.farmatify.service.dto;
+import java.time.Instant;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,22 +10,14 @@ public class SubscripcionDTO implements Serializable {
 
     private Long id;
 
-    private Long idMedicamento;
+    private Instant fechaInicio;
 
-    private Long idCliente;
-
-    private Long idFarmacia;
+    private Instant fechaFin;
 
 
     private Long farmaciaId;
 
-    private Long clienteId;
-
-    private Long idMedicamentoId;
-
-    private Long idFarmaciaId;
-
-    private Long idClienteId;
+    private Long usuarioId;
 
     public Long getId() {
         return id;
@@ -34,28 +27,20 @@ public class SubscripcionDTO implements Serializable {
         this.id = id;
     }
 
-    public Long getIdMedicamento() {
-        return idMedicamento;
+    public Instant getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setIdMedicamento(Long idMedicamento) {
-        this.idMedicamento = idMedicamento;
+    public void setFechaInicio(Instant fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
+    public Instant getFechaFin() {
+        return fechaFin;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Long getIdFarmacia() {
-        return idFarmacia;
-    }
-
-    public void setIdFarmacia(Long idFarmacia) {
-        this.idFarmacia = idFarmacia;
+    public void setFechaFin(Instant fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public Long getFarmaciaId() {
@@ -66,36 +51,12 @@ public class SubscripcionDTO implements Serializable {
         this.farmaciaId = farmaciaId;
     }
 
-    public Long getClienteId() {
-        return clienteId;
+    public Long getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
-    }
-
-    public Long getIdMedicamentoId() {
-        return idMedicamentoId;
-    }
-
-    public void setIdMedicamentoId(Long medicamentoId) {
-        this.idMedicamentoId = medicamentoId;
-    }
-
-    public Long getIdFarmaciaId() {
-        return idFarmaciaId;
-    }
-
-    public void setIdFarmaciaId(Long farmaciaId) {
-        this.idFarmaciaId = farmaciaId;
-    }
-
-    public Long getIdClienteId() {
-        return idClienteId;
-    }
-
-    public void setIdClienteId(Long clienteId) {
-        this.idClienteId = clienteId;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     @Override
@@ -123,14 +84,10 @@ public class SubscripcionDTO implements Serializable {
     public String toString() {
         return "SubscripcionDTO{" +
             "id=" + getId() +
-            ", idMedicamento=" + getIdMedicamento() +
-            ", idCliente=" + getIdCliente() +
-            ", idFarmacia=" + getIdFarmacia() +
+            ", fechaInicio='" + getFechaInicio() + "'" +
+            ", fechaFin='" + getFechaFin() + "'" +
             ", farmacia=" + getFarmaciaId() +
-            ", cliente=" + getClienteId() +
-            ", idMedicamento=" + getIdMedicamentoId() +
-            ", idFarmacia=" + getIdFarmaciaId() +
-            ", idCliente=" + getIdClienteId() +
+            ", usuario=" + getUsuarioId() +
             "}";
     }
 }

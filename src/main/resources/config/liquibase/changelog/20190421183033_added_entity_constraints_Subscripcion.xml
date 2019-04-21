@@ -14,29 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="farmacia"/>
 
-        <addForeignKeyConstraint baseColumnNames="cliente_id"
+        <addForeignKeyConstraint baseColumnNames="usuario_id"
                                  baseTableName="subscripcion"
-                                 constraintName="fk_subscripcion_cliente_id"
+                                 constraintName="fk_subscripcion_usuario_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="cliente"/>
-
-        <addForeignKeyConstraint baseColumnNames="id_medicamento_id"
-                                 baseTableName="subscripcion"
-                                 constraintName="fk_subscripcion_id_medicamento_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="medicamento"/>
-
-        <addForeignKeyConstraint baseColumnNames="id_farmacia_id"
-                                 baseTableName="subscripcion"
-                                 constraintName="fk_subscripcion_id_farmacia_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="farmacia"/>
-
-        <addForeignKeyConstraint baseColumnNames="id_cliente_id"
-                                 baseTableName="subscripcion"
-                                 constraintName="fk_subscripcion_id_cliente_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cliente"/>
+                                 referencedTableName="usuario"/>
 
     </changeSet>
 </databaseChangeLog>

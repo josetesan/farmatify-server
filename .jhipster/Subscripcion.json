@@ -2,16 +2,12 @@
     "name": "Subscripcion",
     "fields": [
         {
-            "fieldName": "idMedicamento",
-            "fieldType": "Long"
+            "fieldName": "fechaInicio",
+            "fieldType": "Instant"
         },
         {
-            "fieldName": "idCliente",
-            "fieldType": "Long"
-        },
-        {
-            "fieldName": "idFarmacia",
-            "fieldType": "Long"
+            "fieldName": "fechaFin",
+            "fieldType": "Instant"
         }
     ],
     "relationships": [
@@ -22,40 +18,16 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipName": "cliente",
-            "otherEntityName": "cliente",
+            "relationshipName": "usuario",
+            "otherEntityName": "usuario",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "otherEntityName": "medicamento",
-            "otherEntityRelationshipName": "subscripcion",
-            "relationshipName": "idMedicamento",
-            "otherEntityField": "id",
-            "ownerSide": true
-        },
-        {
-            "relationshipType": "one-to-one",
-            "otherEntityName": "farmacia",
-            "otherEntityRelationshipName": "subscripcion",
-            "relationshipName": "idFarmacia",
-            "otherEntityField": "id",
-            "ownerSide": true
-        },
-        {
-            "relationshipType": "one-to-one",
-            "otherEntityName": "cliente",
-            "otherEntityRelationshipName": "subscripcion",
-            "relationshipName": "idCliente",
-            "otherEntityField": "id",
-            "ownerSide": true
         },
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "medicamento",
             "otherEntityRelationshipName": "subscripcion",
-            "relationshipName": "idMedicamento"
+            "relationshipName": "medicamento"
         }
     ],
     "changelogDate": "20190421183033",

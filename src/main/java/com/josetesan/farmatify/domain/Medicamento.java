@@ -44,9 +44,9 @@ public class Medicamento implements Serializable {
 
     @OneToMany(mappedBy = "medicamento")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Posologia> idPosologias = new HashSet<>();
+    private Set<Posologia> posologias = new HashSet<>();
     @ManyToOne
-    @JsonIgnoreProperties("idMedicamentos")
+    @JsonIgnoreProperties("medicamentos")
     private Subscripcion subscripcion;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -110,29 +110,29 @@ public class Medicamento implements Serializable {
         this.unidades = unidades;
     }
 
-    public Set<Posologia> getIdPosologias() {
-        return idPosologias;
+    public Set<Posologia> getPosologias() {
+        return posologias;
     }
 
-    public Medicamento idPosologias(Set<Posologia> posologias) {
-        this.idPosologias = posologias;
+    public Medicamento posologias(Set<Posologia> posologias) {
+        this.posologias = posologias;
         return this;
     }
 
-    public Medicamento addIdPosologia(Posologia posologia) {
-        this.idPosologias.add(posologia);
+    public Medicamento addPosologia(Posologia posologia) {
+        this.posologias.add(posologia);
         posologia.setMedicamento(this);
         return this;
     }
 
-    public Medicamento removeIdPosologia(Posologia posologia) {
-        this.idPosologias.remove(posologia);
+    public Medicamento removePosologia(Posologia posologia) {
+        this.posologias.remove(posologia);
         posologia.setMedicamento(null);
         return this;
     }
 
-    public void setIdPosologias(Set<Posologia> posologias) {
-        this.idPosologias = posologias;
+    public void setPosologias(Set<Posologia> posologias) {
+        this.posologias = posologias;
     }
 
     public Subscripcion getSubscripcion() {

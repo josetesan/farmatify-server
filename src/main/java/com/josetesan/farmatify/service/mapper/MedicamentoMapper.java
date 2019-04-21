@@ -14,7 +14,7 @@ public interface MedicamentoMapper extends EntityMapper<MedicamentoDTO, Medicame
     @Mapping(source = "subscripcion.id", target = "subscripcionId")
     MedicamentoDTO toDto(Medicamento medicamento);
 
-    @Mapping(target = "idPosologias", ignore = true)
+    @Mapping(target = "posologias", ignore = true)
     @Mapping(source = "subscripcionId", target = "subscripcion")
     Medicamento toEntity(MedicamentoDTO medicamentoDTO);
 

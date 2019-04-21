@@ -1,0 +1,35 @@
+{
+    "name": "Usuario",
+    "fields": [
+        {
+            "fieldName": "usuario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subscripcion",
+            "otherEntityRelationshipName": "usuario",
+            "relationshipName": "usuario"
+        }
+    ],
+    "changelogDate": "20190421184624",
+    "entityTableName": "usuario",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "farmatify"
+}

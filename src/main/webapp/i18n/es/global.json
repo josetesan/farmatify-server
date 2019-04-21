@@ -13,6 +13,7 @@
                 "farmaciaFarmatify": "Farmacia",
                 "clienteFarmatify": "Cliente",
                 "subscripcionFarmatify": "Subscripcion",
+                "usuarioFarmatify": "Usuario",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

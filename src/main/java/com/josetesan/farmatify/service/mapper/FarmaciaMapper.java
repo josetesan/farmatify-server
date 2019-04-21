@@ -12,7 +12,7 @@ import org.mapstruct.*;
 public interface FarmaciaMapper extends EntityMapper<FarmaciaDTO, Farmacia> {
 
 
-    @Mapping(target = "idFarmacias", ignore = true)
+    @Mapping(target = "farmacias", ignore = true)
     Farmacia toEntity(FarmaciaDTO farmaciaDTO);
 
     default Farmacia fromId(Long id) {
